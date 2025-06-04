@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import CabinList from "../_components/CabinList";
 import Spinner from "../_components/Spinner";
 import Filter from "../_components/Filter";
+import ReservationReminder from "../_components/ReservationReminder";
 
 /* Disable static rendering and cache; regenerate on every request
  Useful when data must always be fresh. */
@@ -39,6 +40,7 @@ export default async function Page({ searchParams }) {
       <Suspense fallback={<Spinner />}>
         {/* Passing key={filter} ensures that the component remounts when filter changes, forcing data re-fetching — therefore filtering is faster */}
         <CabinList filter={filter} key={filter} />
+        <ReservationReminder />
       </Suspense>
     </div>
   );

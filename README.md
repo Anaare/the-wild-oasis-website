@@ -17,6 +17,8 @@ This app is built using **React**, **Next.js**, **Supabase**, and **NextAuth.js*
 - **Frontend**: React, Next.js
 - **Backend**: Supabase (Database + Auth + API)
 - **Authentication**: NextAuth.js (email/password)
+- **State Management**: React Context API
+- **Styling**: Tailwind CSS
 - **Deployment**: Vercel
 
 ---
