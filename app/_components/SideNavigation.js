@@ -28,7 +28,6 @@ const navLinks = [
 
 function SideNavigation() {
   const pathName = usePathname();
-  console.log(pathName);
 
   return (
     <nav className="border-r border-primary-900 h-full">

@@ -1,10 +1,8 @@
 import { auth } from "../_lib/auth";
-import Image from "next/image";
 import Link from "next/link";
 
 export default async function Navigation() {
   const session = await auth();
-  console.log(session);
 
   return (
     <nav className="z-10 text-xl">
