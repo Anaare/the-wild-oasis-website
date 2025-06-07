@@ -48,3 +48,35 @@ export async function deleteReservation(bookingId) {
 
   revalidatePath("/account/reservations");
 }
+
+export async function updateReservation(formData) {
+  // 1) Authentication
+  const session = await auth();
+  if (!session) throw new Error("You must be logged in");
+
+  // 2) Authorization
+  const numGuests = Number(formData.get("numGuests"));
+  const observations = formData.get("observations").slice(0, 1000);
+  const bookingId = Number(formData.get("reservationId"));
+  const updateData = { numGuests, observations };
+
+  // 3) Updating
+  const { error } = await supabase
+    .from("bookings")
+    .update(updateData)
+    .eq("id", bookingId)
+    .select()
+    .single();
+  // 4) Error handling
+  if (error) {
+    console.error(error);
+    throw new Error("Reservation could not be updated");
+  }
+
+  // 5) Cache
+  revalidatePath(`/account/reservations/edit/${bookingId}`);
+  revalidatePath("/account/reservations");
+
+  // 6) Redirection
+  redirect("/account/reservations");
+}
