@@ -8,7 +8,7 @@ This app is built using **React**, **Next.js**, **Supabase**, and **NextAuth.js*
 
 ## 🌍 Demo
 
-🔗 **Live Demo**:
+🔗 **Live Demo**: https://the-wild-oasis-website-ten-steel.vercel.app/
 
 ---
 
